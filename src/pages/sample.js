@@ -15,8 +15,6 @@ const Sample = () => {
         }
     `)
 
-    console.log(data)
-
     return (
         <Layout>
             <h2 className={sampleStyle.title}>Sample page</h2>
