@@ -1,0 +1,27 @@
+.title {
+    background: linear-gradient(to right bottom, rgb(105, 105, 250), #ff6060);
+    padding: 5rem;
+    color: #fff;
+    border-radius: 3rem;
+    margin-bottom: 3rem;
+}
+
+%gradient-font {
+    background: linear-gradient(to right bottom, blue, red);
+    background-clip: text;
+    color: transparent;
+}
+
+.paragraph {
+    @extend %gradient-font;
+}   
+
+.list {
+    @extend %gradient-font;
+    display: flex;
+    flex-wrap: wrap;
+
+    & li {
+        padding: 2rem;
+    }
+}
