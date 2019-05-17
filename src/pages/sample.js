@@ -1,10 +1,22 @@
 import React from 'react';
 import Layout from '../components/layout';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import sampleStyle from './sample.module.scss';
 
 
 const Sample = () => {
+    const data = useStaticQuery(graphql`
+        query {
+            site {
+                siteMetadata {
+                    test
+                }
+            }
+        }
+    `)
+
+    console.log(data)
+
     return (
         <Layout>
             <h2 className={sampleStyle.title}>Sample page</h2>
@@ -16,6 +28,8 @@ const Sample = () => {
                     return <li key={i}>{str}</li>;
                 })}
             </ul>
+
+            <p className={sampleStyle.query}>{data.site.siteMetadata.test}</p>
             <Link to='/' >to Home</Link>
         </Layout>
     )
